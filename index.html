@@ -8,14 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <link href="fontawesome-free-6.5.2-web/css/all.css" rel="stylesheet">
-    <!--link rel="stylesheet" href="style.css"-->
-
 </head>
 
 <body>
@@ -24,39 +19,21 @@
         <div class="col-12"></div>
         <div class="mb-3"></div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css"
-            integrity="sha512-yVvxUQV0QESBt1SyZbNJMAwyKvFTLMyXSyBHDO4BG5t7k/Lw34tyqlSDlKIrIENIzCl+RVUNjmCPG+V/GMesRw=="
-            crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"
-            integrity="sha512-rMGGF4wg1R73ehtnxXBt5mbUfN9JUJwbk21KMlnLZDJh7BkPmeovBuddZCENJddHYYMkCh9hPFnPmS9sspki8g=="
-            crossorigin="anonymous"></script>
+        <div class="selectitems">
+            <form id="myForm">
+                <label for="">Select</label>
+                <select id="myForm">
+                    <option value=""></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button type="button" class="btn btn-info">Submit</button>
+            </form>
+        </div>
 
-        <form id="myForm">
-            <select data-placeholder="Choose..." multiple class="chosen-select" name="milestone">
-                <option value=""></option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <input type="submit" value="submit" />
-        </form>
-
-        <script>
-            let choosen = $(".chosen-select").chosen({ width: "200px" });
-
-            $('#myForm').on('submit', function (e) {
-                e.preventDefault();
-                const form = e.target;
-                const milestones = $(form.elements.milestone).val();
-                if (milestones.length > 1) alert('error');
-                else alert('success')
-            })
-        </script>
-
-        
         <table class="table table-bordered">
             <!--table class="table table-bordered border-primary"-->
             <thead>
@@ -64,7 +41,7 @@
                     <th scope="col">#</th>
                     <th scope="col">charge Name</th>
                     <th scope="col">Default Amount</th>
-                    <th scope="col">Default %</th>
+                    <th scope="col">Default percentage</th>
                     <th scope="col">charge Type</th>
                     <th scope="col">Status</th>
                     <th scope="col">Manage Charges</th>
@@ -81,83 +58,74 @@
 
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked-1" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked-1"></label>
                         </div>
                     </td>
 
-
                     <td>
-                        <div class="money-bill-1">
+                        <div class="money-bill">
                             <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">View</button>
+                                data-bs-target="#exampleModal-1" data-bs-whatever="@mdo">View</button>
 
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="exampleModal-1" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Manage Extra Charges</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form>
                                                 <div class="mb-3">
-                                                    <label for="floatingInputValue">Charge Name</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write here" value="write here">
-                                                </div>
-                                                <label for="floatingInputValue">Charge Type</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">Dine-in</option>
-                                                    <option value="2">Take away</option>
-                                                    <option value="3">Delivery</option>
-                                                </select>
-                                                <label for="floatingInputValue">Charge Status</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>View Status</option>
-                                                    <option value="1">Enable</option>
-                                                    <option value="2">Disable</option>
-                                                </select>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default Amount</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write amount" value="write amount">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default %</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write %" value="write %">
+                                                    <label for="Namefield" class="col-form-label">Charge Name</label>
+                                                    <input type="text" class="form-control" id="Name"
+                                                        placeholder="write here">
+
+                                                    <label for="defaultvalue" class="col-form-label">Default
+                                                        Amount</label>
+                                                    <input type="text" class="form-control" id="defaultamount"
+                                                        placeholder="write amount">
+
+                                                    <label for="default%" class="col-form-label">Default %</label>
+                                                    <input type="text" class="form-control" id="defaultpercent"
+                                                        placeholder="write percentage">
+
+                                                    <label for="Type">Charge Type</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>Open this select menu</option>
+                                                        <option value="1">Dine-in</option>
+                                                        <option value="2">Take away</option>
+                                                        <option value="3">Delivery</option>
+                                                    </select>
+                                                    <label for="Status">Charge Status</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>View Status</option>
+                                                        <option value="1">Enable</option>
+                                                        <option value="2">Disable</option>
+                                                    </select>
                                                 </div>
                                             </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Submit</button>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Submit</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                    </td>
+
+                    <td>
+                        <div class="delete">
+                            <button type="button" class="btn btn-info">Delete</button>
                         </div>
                     </td>
-                    <td>
-                        <script>
-                            function ConfirmDelete() {
-                                confirm("Are you sure you want to delete this area?");
-                            }</script>
-                        <form name="del_update" action="manage.php?dealer_id=10&category_id=1" method="post" />
-                        <input type="Submit" value="Delete" onclick="ConfirmDelete()" />
-                        <input type="hidden" name="id" value="41" />
-                        <input type="hidden" name="url" value="manage.php?dealer_id=10&category_id=1" />
-                        </form>
-
-                    </td>
-
                 </tr>
             </tbody>
+
             <tbody>
                 <tr>
                     <th scope="row">2</th>
@@ -165,82 +133,74 @@
                     <td>500</td>
                     <td>10</td>
                     <td>Dine-in</td>
+
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked-2" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked-2"></label>
                         </div>
                     </td>
+
                     <td>
-                        <div class="money-bill-2">
+                        <div class="money-bill">
                             <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">View</button>
+                                data-bs-target="#exampleModal-2" data-bs-whatever="@mdo">View</button>
 
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="exampleModal-2" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Manage Extra Charges</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form>
                                                 <div class="mb-3">
-                                                    <label for="floatingInputValue">Charge Name</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write here" value="write here">
-                                                </div>
-                                                <label for="floatingInputValue">Charge Type</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">Dine-in</option>
-                                                    <option value="2">Take away</option>
-                                                    <option value="3">Delivery</option>
-                                                </select>
-                                                <label for="floatingInputValue">Charge Status</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>View Status</option>
-                                                    <option value="1">Enable</option>
-                                                    <option value="2">Disable</option>
-                                                </select>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default Amount</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write amount" value="write amount">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default %</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write %" value="write %">
+                                                    <label for="Name" class="col-form-label">Charge Name</label>
+                                                    <input type="text" class="form-control" id="Name-2"
+                                                        placeholder="write here">
+
+                                                    <label for="defaultvalue" class="col-form-label">Default
+                                                        Amount</label>
+                                                    <input type="text" class="form-control" id="defaultamount-2"
+                                                        placeholder="write amount">
+
+                                                    <label for="default%" class="col-form-label">Default %</label>
+                                                    <input type="text" class="form-control" id="defaultpercent-2"
+                                                        placeholder="write percentage">
+
+                                                    <label for="Type">Charge Type</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>Open this select menu</option>
+                                                        <option value="1">Dine-in</option>
+                                                        <option value="2">Take away</option>
+                                                        <option value="3">Delivery</option>
+                                                    </select>
+                                                    <label for="Status">Charge Status</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>View Status</option>
+                                                        <option value="1">Enable</option>
+                                                        <option value="2">Disable</option>
+                                                    </select>
                                                 </div>
                                             </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Submit</button>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Submit</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                    </td>
+
+                    <td>
+                        <div class="delete">
+                            <button type="button" class="btn btn-info">Delete</button>
                         </div>
                     </td>
-                    <td>
-                        <script>
-                            function ConfirmDelete() {
-                                confirm("Are you sure you want to delete this area?");
-                            }</script>
-                        <form name="del_update" action="manage.php?dealer_id=10&category_id=1" method="post" />
-                        <input type="Submit" value="Delete" onclick="ConfirmDelete()" />
-                        <input type="hidden" name="id" value="41" />
-                        <input type="hidden" name="url" value="manage.php?dealer_id=10&category_id=1" />
-                        </form>
-
-                    </td>
-
                 </tr>
             </tbody>
 
@@ -254,82 +214,74 @@
 
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked-3" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked-3"></label>
                         </div>
                     </td>
 
                     <td>
-                        <div class="money-bill-3">
+                        <div class="money-bill">
                             <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">View</button>
+                                data-bs-target="#exampleModal-3" data-bs-whatever="@mdo">View</button>
 
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="exampleModal-3" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Manage Extra Charges</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form>
                                                 <div class="mb-3">
-                                                    <label for="floatingInputValue">Charge Name</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write here" value="write here">
-                                                </div>
-                                                <label for="floatingInputValue">Charge Type</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">Dine-in</option>
-                                                    <option value="2">Take away</option>
-                                                    <option value="3">Delivery</option>
-                                                </select>
-                                                <label for="floatingInputValue">Charge Status</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>View Status</option>
-                                                    <option value="1">Enable</option>
-                                                    <option value="2">Disable</option>
-                                                </select>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default Amount</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write amount" value="write amount">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default %</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write %" value="write %">
+                                                    <label for="Name" class="col-form-label">Charge Name</label>
+                                                    <input type="text" class="form-control" id="Name-3"
+                                                        placeholder="write here">
+
+                                                    <label for="defaultvalue" class="col-form-label">Default
+                                                        Amount</label>
+                                                    <input type="text" class="form-control" id="defaultamount-3"
+                                                        placeholder="write amount">
+
+                                                    <label for="default%" class="col-form-label">Default %</label>
+                                                    <input type="text" class="form-control" id="defaultpercent-3"
+                                                        placeholder="write percentage">
+
+                                                    <label for="Type">Charge Type</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>Open this select menu</option>
+                                                        <option value="1">Dine-in</option>
+                                                        <option value="2">Take away</option>
+                                                        <option value="3">Delivery</option>
+                                                    </select>
+                                                    <label for="Status">Charge Status</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>View Status</option>
+                                                        <option value="1">Enable</option>
+                                                        <option value="2">Disable</option>
+                                                    </select>
                                                 </div>
                                             </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Submit</button>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Submit</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                    </td>
+
+                    <td>
+                        <div class="delete">
+                            <button type="button" class="btn btn-info">Delete</button>
                         </div>
                     </td>
-                    <td>
-                        <script>
-                            function ConfirmDelete() {
-                                confirm("Are you sure you want to delete this area?");
-                            }</script>
-                        <form name="del_update" action="manage.php?dealer_id=10&category_id=1" method="post" />
-                        <input type="Submit" value="Delete" onclick="ConfirmDelete()" />
-                        <input type="hidden" name="id" value="41" />
-                        <input type="hidden" name="url" value="manage.php?dealer_id=10&category_id=1" />
-                        </form>
-
-                    </td>
-
                 </tr>
             </tbody>
+
             <tbody>
                 <tr>
                     <th scope="row">4</th>
@@ -339,83 +291,74 @@
                     <td>Dine-In</td>
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked-4" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked-4"></label>
                         </div>
                     </td>
 
                     <td>
-                        <div class="money-bill-4">
+                        <div class="money-bill">
                             <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">View</button>
+                                data-bs-target="#exampleModal-4" data-bs-whatever="@mdo">View</button>
 
-
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="exampleModal-4" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Manage Extra Charges</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form>
                                                 <div class="mb-3">
-                                                    <label for="floatingInputValue">Charge Name</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write here" value="write here">
-                                                </div>
-                                                <label for="floatingInputValue">Charge Type</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">Dine-in</option>
-                                                    <option value="2">Take away</option>
-                                                    <option value="3">Delivery</option>
-                                                </select>
-                                                <label for="floatingInputValue">Charge Status</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>View Status</option>
-                                                    <option value="1">Enable</option>
-                                                    <option value="2">Disable</option>
-                                                </select>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default Amount</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write amount" value="write amount">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default %</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write %" value="write %">
+                                                    <label for="Name" class="col-form-label">Charge Name</label>
+                                                    <input type="text" class="form-control" id="Name-4"
+                                                        placeholder="write here">
+
+                                                    <label for="defaultvalue" class="col-form-label">Default
+                                                        Amount</label>
+                                                    <input type="text" class="form-control" id="defaultamount-4"
+                                                        placeholder="write amount">
+
+                                                    <label for="default%" class="col-form-label">Default %</label>
+                                                    <input type="text" class="form-control" id="defaultpercent-4"
+                                                        placeholder="write percentage">
+
+                                                    <label for="Type">Charge Type</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>Open this select menu</option>
+                                                        <option value="1">Dine-in</option>
+                                                        <option value="2">Take away</option>
+                                                        <option value="3">Delivery</option>
+                                                    </select>
+                                                    <label for="Status">Charge Status</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>View Status</option>
+                                                        <option value="1">Enable</option>
+                                                        <option value="2">Disable</option>
+                                                    </select>
                                                 </div>
                                             </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Submit</button>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Submit</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                    </td>
+
+                    <td>
+                        <div class="delete">
+                            <button type="button" class="btn btn-info">Delete</button>
                         </div>
                     </td>
-                    <td>
-                        <script>
-                            function ConfirmDelete() {
-                                confirm("Are you sure you want to delete this area?");
-                            }</script>
-                        <form name="del_update" action="manage.php?dealer_id=10&category_id=1" method="post" />
-                        <input type="Submit" value="Delete" onclick="ConfirmDelete()" />
-                        <input type="hidden" name="id" value="41" />
-                        <input type="hidden" name="url" value="manage.php?dealer_id=10&category_id=1" />
-                        </form>
-
-                    </td>
-
                 </tr>
             </tbody>
+
             <tbody>
                 <tr>
                     <th scope="row">5</th>
@@ -425,87 +368,77 @@
                     <td>Delivery</td>
                     <td>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked-5" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked-5"></label>
                         </div>
                     </td>
 
-
                     <td>
-                        <div class="money-bill-5">
+                        <div class="money-bill">
                             <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">View</button>
+                                data-bs-target="#exampleModal-5" data-bs-whatever="@mdo">View</button>
 
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="exampleModal-5" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Manage Extra Charges</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form>
                                                 <div class="mb-3">
-                                                    <label for="floatingInputValue">Charge Name</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write here" value="write here">
-                                                </div>
-                                                <label for="floatingInputValue">Charge Type</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>Open this select menu</option>
-                                                    <option value="1">Dine-in</option>
-                                                    <option value="2">Take away</option>
-                                                    <option value="3">Delivery</option>
-                                                </select>
-                                                <label for="floatingInputValue">Charge Status</label>
-                                                <select class="form-select" aria-label="Default select example">
-                                                    <option selected>View Status</option>
-                                                    <option value="1">Enable</option>
-                                                    <option value="2">Disable</option>
-                                                </select>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default Amount</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write amount" value="write amount">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="floatingInputValue">Default %</label>
-                                                    <input type="email" class="form-control" id="floatingInputValue"
-                                                        placeholder="write %" value="write %">
+                                                    <label for="Name" class="col-form-label">Charge Name</label>
+                                                    <input type="text" class="form-control" id="Name-5"
+                                                        placeholder="write here">
+
+                                                    <label for="defaultvalue" class="col-form-label">Default
+                                                        Amount</label>
+                                                    <input type="text" class="form-control" id="defaultamount-5"
+                                                        placeholder="write amount">
+
+                                                    <label for="default%" class="col-form-label">Default %</label>
+                                                    <input type="text" class="form-control" id="defaultpercent-5"
+                                                        placeholder="write percentage">
+
+                                                    <label for="Type">Charge Type</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>Open this select menu</option>
+                                                        <option value="1">Dine-in</option>
+                                                        <option value="2">Take away</option>
+                                                        <option value="3">Delivery</option>
+                                                    </select>
+                                                    <label for="Status">Charge Status</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option selected>View Status</option>
+                                                        <option value="1">Enable</option>
+                                                        <option value="2">Disable</option>
+                                                    </select>
                                                 </div>
                                             </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Submit</button>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Submit</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                    </td>
+
+                    <td>
+                        <div class="delete">
+                            <button type="button" class="btn btn-info">Delete</button>
                         </div>
                     </td>
-                    <td>
-                        <script>
-                            function ConfirmDelete() {
-                                confirm("Are you sure you want to delete this area?");
-                            }</script>
-                        <form name="del_update" action="manage.php?dealer_id=10&category_id=1" method="post" />
-                        <input type="Submit" value="Delete" onclick="ConfirmDelete()" />
-                        <input type="hidden" name="id" value="41" />
-                        <input type="hidden" name="url" value="manage.php?dealer_id=10&category_id=1" />
-                        </form>
-
-                    </td>
-
                 </tr>
-
             </tbody>
         </table>
     </div>
 
+    <script src="script.js"></script>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -514,11 +447,13 @@
         crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-    </div>
-</body>
 
+    <!--script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+                integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+                integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+                crossorigin="anonymous"></script-->
+
+</body>
 </html>
